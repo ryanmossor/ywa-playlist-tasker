@@ -17,12 +17,43 @@
 			<tm>0</tm>
 		</Time>
 	</Profile>
+	<Profile sr="prof164" ve="2">
+		<cdate>1642132003271</cdate>
+		<clp>true</clp>
+		<edate>1642132865093</edate>
+		<flags>8</flags>
+		<id>164</id>
+		<limit>true</limit>
+		<mid0>163</mid0>
+		<nme>Add Today's YWA Vid(s) To To-do List</nme>
+		<Time sr="con0">
+			<fh>6</fh>
+			<fm>30</fm>
+			<th>6</th>
+			<tm>30</tm>
+		</Time>
+	</Profile>
+	<Profile sr="prof170" ve="2">
+		<cdate>1642132003271</cdate>
+		<clp>true</clp>
+		<edate>1642133585969</edate>
+		<flags>8</flags>
+		<id>170</id>
+		<mid0>163</mid0>
+		<nme>Notify Today's YWA Vid(s)</nme>
+		<Time sr="con0">
+			<fh>9</fh>
+			<fm>30</fm>
+			<th>9</th>
+			<tm>30</tm>
+		</Time>
+	</Profile>
 	<Project sr="proj0" ve="2">
 		<cdate>1641955750012</cdate>
 		<name>YWA</name>
-		<pids>154</pids>
+		<pids>154,164,170</pids>
 		<psort>EnabledAlpha</psort>
-		<tids>146,80,71,145,152</tids>
+		<tids>171,80,71,145,163,152,162</tids>
 		<tsort>Alpha</tsort>
 		<ProfileVariable sr="pv0">
 			<clearout>false</clearout>
@@ -31,7 +62,7 @@
 			<pvci>true</pvci>
 			<pvd>Enter YouTube API key</pvd>
 			<pvdn>YouTube API Key</pvdn>
-			<pvid>8</pvid>
+			<pvid>9</pvid>
 			<pvit>pj</pvit>
 			<pvn>%yt_key</pvn>
 			<pvt>t</pvt>
@@ -44,7 +75,7 @@
 			<pvci>false</pvci>
 			<pvd></pvd>
 			<pvdn>YWA Current Monthly Playlist</pvdn>
-			<pvid>8</pvid>
+			<pvid>9</pvid>
 			<pvit>pj</pvit>
 			<pvn>%latest_playlist</pvn>
 			<pvt>t</pvt>
@@ -57,7 +88,7 @@
 			<pvci>false</pvci>
 			<pvd></pvd>
 			<pvdn>Current video index</pvdn>
-			<pvid>8</pvid>
+			<pvid>9</pvid>
 			<pvit>pj</pvit>
 			<pvn>%current_vid_index</pvn>
 			<pvt>n</pvt>
@@ -66,9 +97,9 @@
 	</Project>
 	<Task sr="task145">
 		<cdate>1642037110813</cdate>
-		<edate>1642101151708</edate>
+		<edate>1642134533815</edate>
 		<id>145</id>
-		<nme>🧪 Time Format Test</nme>
+		<nme>🕓 Format Video Duration</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>547</code>
@@ -103,29 +134,9 @@
 			<Int sr="arg3" val="0"/>
 		</Action>
 		<Action sr="act4" ve="7">
-			<code>548</code>
-			<label>21: minutes
-221: seconds</label>
-			<on>false</on>
-			<Str sr="arg0" ve="3">%testtime21:%testtime221</Str>
-			<Int sr="arg1" val="0"/>
-		</Action>
-		<Action sr="act5" ve="7">
-			<code>596</code>
-			<on>false</on>
-			<Str sr="arg0" ve="3">%testtime2</Str>
-			<Int sr="arg1" val="28"/>
-			<Str sr="arg2" ve="3">%newtest</Str>
-			<Int sr="arg3" val="0"/>
-		</Action>
-		<Action sr="act6" ve="7">
-			<code>548</code>
-			<on>false</on>
-			<Str sr="arg0" ve="3">%newtest</Str>
-			<Int sr="arg1" val="0"/>
-		</Action>
-		<Action sr="act7" ve="7">
 			<code>394</code>
+			<label>21: minutes
+221' seconds</label>
 			<Bundle sr="arg0">
 				<Vals sr="val">
 					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%formatted_duration
@@ -156,13 +167,7 @@ Seconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&
 			<Int sr="arg8" val="0"/>
 			<Int sr="arg9" val="0"/>
 		</Action>
-		<Action sr="act8" ve="7">
-			<code>548</code>
-			<on>false</on>
-			<Str sr="arg0" ve="3">%formatted_duration</Str>
-			<Int sr="arg1" val="0"/>
-		</Action>
-		<Action sr="act9" ve="7">
+		<Action sr="act5" ve="7">
 			<code>126</code>
 			<Str sr="arg0" ve="3">%formatted_duration</Str>
 			<Int sr="arg1" val="1"/>
@@ -174,40 +179,11 @@ Seconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&
 			<nme>mw_device_access_time</nme>
 		</Img>
 	</Task>
-	<Task sr="task146">
-		<cdate>1642039985753</cdate>
-		<edate>1642101155796</edate>
-		<id>146</id>
-		<nme>[JS] meditationTitleCheck</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>129</code>
-			<label>%par1 = video title</label>
-			<Str sr="arg0" ve="3">let testString = par[0];
-// let testString = test_string;
-
-var result = testString.toLowerCase().includes("meditation");</Str>
-			<Str sr="arg1" ve="3"/>
-			<Int sr="arg2" val="1"/>
-			<Int sr="arg3" val="45"/>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>126</code>
-			<Str sr="arg0" ve="3">%result</Str>
-			<Int sr="arg1" val="1"/>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Str sr="arg4" ve="3"/>
-		</Action>
-		<Img sr="icn" ve="2">
-			<nme>mw_action_code</nme>
-		</Img>
-	</Task>
 	<Task sr="task152">
 		<cdate>1642082130955</cdate>
-		<edate>1642104251389</edate>
+		<edate>1642134589136</edate>
 		<id>152</id>
-		<nme>Meditation Title Check</nme>
+		<nme>📋 Meditation Title Check</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>396</code>
@@ -238,9 +214,340 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 			<nme>mw_action_assignment_turned_in</nme>
 		</Img>
 	</Task>
+	<Task sr="task162">
+		<cdate>1642130469499</cdate>
+		<edate>1642134446244</edate>
+		<id>162</id>
+		<nme>🗑️</nme>
+		<Action sr="act0" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<bool0>And2</bool0>
+				<bool1>Or</bool1>
+				<bool2>And2</bool2>
+				<bool3>Or</bool3>
+				<bool4>And2</bool4>
+				<Condition sr="c0" ve="3">
+					<lhs>%current_title_contains_meditation</lhs>
+					<op>0</op>
+					<rhs>true</rhs>
+				</Condition>
+				<Condition sr="c1" ve="3">
+					<lhs>%next_title_contains_meditation</lhs>
+					<op>0</op>
+					<rhs>true</rhs>
+				</Condition>
+				<Condition sr="c2" ve="3">
+					<lhs>%current_title_contains_meditation</lhs>
+					<op>0</op>
+					<rhs>true</rhs>
+				</Condition>
+				<Condition sr="c3" ve="3">
+					<lhs>%next_title_contains_meditation</lhs>
+					<op>0</op>
+					<rhs>false</rhs>
+				</Condition>
+				<Condition sr="c4" ve="3">
+					<lhs>%current_title_contains_meditation</lhs>
+					<op>0</op>
+					<rhs>false</rhs>
+				</Condition>
+				<Condition sr="c5" ve="3">
+					<lhs>%next_title_contains_meditation</lhs>
+					<op>0</op>
+					<rhs>false</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+	</Task>
+	<Task sr="task163">
+		<cdate>1642130848141</cdate>
+		<edate>1642134783054</edate>
+		<id>163</id>
+		<nme>Notify Today's Video(s)</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">▶️ Get Today's YWA Video(s)</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3">%results</Str>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>394</code>
+			<label>Current date for Tasks reminder</label>
+			<on>false</on>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%today
+00. Today
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%dt_millis
+1. MilliSeconds
+Milliseconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%dt_seconds
+2. Seconds
+Seconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%dt_day_of_month
+3. Day Of Month
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%dt_month_of_year
+4. Month Of Year
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%dt_year
+5. Year
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg10" val="0"/>
+			<Str sr="arg11" ve="3"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3">yyyy-MM-dd</Str>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3">%today</Str>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>377</code>
+			<on>false</on>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%td_button
+Button
+The label of the button that was clicked&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">test</Str>
+			<Str sr="arg2" ve="3">%results</Str>
+			<Str sr="arg3" ve="3">ok</Str>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Int sr="arg6" val="30"/>
+			<Int sr="arg7" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>174307118</code>
+			<on>false</on>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<com.twofortyfouram.locale.intent.extra.BLURB>[%results.yogaDuration] %results.yogaTitle</com.twofortyfouram.locale.intent.extra.BLURB>
+					<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>org.tasks.locale.create.STRING_TITLE org.tasks.locale.create.STRING_DUE_DATE org.tasks.locale.create.STRING_DUE_TIME org.tasks.locale.create.STRING_PRIORITY org.tasks.locale.create.STRING_DESCRIPTION</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>
+					<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>
+					<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>
+					<org.tasks.locale.create.INT_VERSION_CODE>120003</org.tasks.locale.create.INT_VERSION_CODE>
+					<org.tasks.locale.create.INT_VERSION_CODE-type>java.lang.Integer</org.tasks.locale.create.INT_VERSION_CODE-type>
+					<org.tasks.locale.create.STRING_DESCRIPTION>%results.yogaVideo</org.tasks.locale.create.STRING_DESCRIPTION>
+					<org.tasks.locale.create.STRING_DESCRIPTION-type>java.lang.String</org.tasks.locale.create.STRING_DESCRIPTION-type>
+					<org.tasks.locale.create.STRING_DUE_DATE>%today</org.tasks.locale.create.STRING_DUE_DATE>
+					<org.tasks.locale.create.STRING_DUE_DATE-type>java.lang.String</org.tasks.locale.create.STRING_DUE_DATE-type>
+					<org.tasks.locale.create.STRING_DUE_TIME>15:00</org.tasks.locale.create.STRING_DUE_TIME>
+					<org.tasks.locale.create.STRING_DUE_TIME-type>java.lang.String</org.tasks.locale.create.STRING_DUE_TIME-type>
+					<org.tasks.locale.create.STRING_PRIORITY></org.tasks.locale.create.STRING_PRIORITY>
+					<org.tasks.locale.create.STRING_PRIORITY-type>java.lang.String</org.tasks.locale.create.STRING_PRIORITY-type>
+					<org.tasks.locale.create.STRING_TITLE>[%results.yogaDuration] %results.yogaTitle</org.tasks.locale.create.STRING_TITLE>
+					<org.tasks.locale.create.STRING_TITLE-type>java.lang.String</org.tasks.locale.create.STRING_TITLE-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">org.tasks</Str>
+			<Str sr="arg2" ve="3">org.tasks.locale.ui.activity.TaskerCreateTaskActivity</Str>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="1"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%yoga_url</Str>
+			<Str sr="arg1" ve="3">%results.yogaVideo</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%results.meditationVideo</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%meditation_url</Str>
+			<Str sr="arg1" ve="3">%results.meditationVideo</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Yoga With Adriene</Str>
+			<Str sr="arg1" ve="3">[%results.yogaDuration] %results.yogaTitle
+[%results.meditationDuration] %results.meditationTitle</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3"/>
+			<Img sr="arg2" ve="2">
+				<nme>mw_av_play_circle_filled</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="1"/>
+			<Int sr="arg5" val="5"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ListElementItem sr="item0">
+				<label>Yoga</label>
+				<Action sr="action" ve="7">
+					<code>130</code>
+					<Str sr="arg0" ve="3">Launch YWA Video</Str>
+					<Int sr="arg1">
+						<var>%priority+1</var>
+					</Int>
+					<Int sr="arg10" val="1"/>
+					<Str sr="arg2" ve="3">%yoga_url</Str>
+					<Str sr="arg3" ve="3"/>
+					<Str sr="arg4" ve="3"/>
+					<Int sr="arg5" val="0"/>
+					<Int sr="arg6" val="0"/>
+					<Str sr="arg7" ve="3"/>
+					<Int sr="arg8" val="0"/>
+					<Int sr="arg9" val="0"/>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_av_play_circle_filled</nme>
+				</Img>
+			</ListElementItem>
+			<ListElementItem sr="item1">
+				<label>Meditation</label>
+				<Action sr="action" ve="7">
+					<code>130</code>
+					<Str sr="arg0" ve="3">Launch YWA Video</Str>
+					<Int sr="arg1">
+						<var>%priority+1</var>
+					</Int>
+					<Int sr="arg10" val="1"/>
+					<Str sr="arg2" ve="3">%meditation_url</Str>
+					<Str sr="arg3" ve="3"/>
+					<Str sr="arg4" ve="3"/>
+					<Int sr="arg5" val="0"/>
+					<Int sr="arg6" val="0"/>
+					<Str sr="arg7" ve="3"/>
+					<Int sr="arg8" val="0"/>
+					<Int sr="arg9" val="0"/>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_av_play_circle_filled</nme>
+				</Img>
+			</ListElementItem>
+			<ListElementItem sr="item2">
+				<label>Dismiss</label>
+				<Action sr="action" ve="7">
+					<code>779</code>
+					<Str sr="arg0" ve="3">Yoga With Adriene</Str>
+					<Int sr="arg1" val="0"/>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_navigation_cancel</nme>
+				</Img>
+			</ListElementItem>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Yoga With Adriene</Str>
+			<Str sr="arg1" ve="3">[%results.yogaDuration] %results.yogaTitle</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3"/>
+			<Img sr="arg2" ve="2">
+				<nme>mw_av_play_circle_filled</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="5"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ListElementItem sr="item0">
+				<label>Watch Video</label>
+				<Action sr="action" ve="7">
+					<code>130</code>
+					<Str sr="arg0" ve="3">Launch YWA Video</Str>
+					<Int sr="arg1">
+						<var>%priority+1</var>
+					</Int>
+					<Int sr="arg10" val="1"/>
+					<Str sr="arg2" ve="3">%yoga_url</Str>
+					<Str sr="arg3" ve="3"/>
+					<Str sr="arg4" ve="3"/>
+					<Int sr="arg5" val="0"/>
+					<Int sr="arg6" val="0"/>
+					<Str sr="arg7" ve="3"/>
+					<Int sr="arg8" val="0"/>
+					<Int sr="arg9" val="0"/>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_av_play_circle_filled</nme>
+				</Img>
+			</ListElementItem>
+			<ListElementItem sr="item1">
+				<label>Dismiss</label>
+				<Action sr="action" ve="7">
+					<code>779</code>
+					<Str sr="arg0" ve="3">Yoga With Adriene</Str>
+					<Int sr="arg1" val="0"/>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_navigation_cancel</nme>
+				</Img>
+			</ListElementItem>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>mw_social_notifications_active</nme>
+		</Img>
+	</Task>
+	<Task sr="task171">
+		<cdate>1642133408334</cdate>
+		<edate>1642134403308</edate>
+		<id>171</id>
+		<nme>Launch YWA Video</nme>
+		<Action sr="act0" ve="7">
+			<code>512</code>
+			<Int sr="arg0" val="1"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>104</code>
+			<Str sr="arg0" ve="3">%par1</Str>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>mw_av_play_circle_filled</nme>
+		</Img>
+	</Task>
 	<Task sr="task71">
 		<cdate>1641955915330</cdate>
-		<edate>1642099562575</edate>
+		<edate>1642131124042</edate>
 		<id>71</id>
 		<nme>Get Latest YWA Playlist ID</nme>
 		<pri>100</pri>
@@ -291,7 +598,7 @@ part:snippet</Str>
 		</Action>
 		<Action sr="act2" ve="7">
 			<code>547</code>
-			<Str sr="arg0" ve="3">%current_vid_id</Str>
+			<Str sr="arg0" ve="3">%current_vid_index</Str>
 			<Str sr="arg1" ve="3">1</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
@@ -305,13 +612,13 @@ part:snippet</Str>
 	</Task>
 	<Task sr="task80">
 		<cdate>1641955915330</cdate>
-		<edate>1642107306152</edate>
+		<edate>1642134640928</edate>
 		<id>80</id>
-		<nme>Get Today's YWA Video(s)</nme>
+		<nme>▶️ Get Today's YWA Video(s)</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>547</code>
-			<Str sr="arg0" ve="3">%meditation_check_index</Str>
+			<Str sr="arg0" ve="3">%next_vid_index</Str>
 			<Str sr="arg1" ve="3">%current_vid_index + 1</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="1"/>
@@ -320,39 +627,6 @@ part:snippet</Str>
 			<Int sr="arg6" val="1"/>
 		</Action>
 		<Action sr="act1" ve="7">
-			<code>394</code>
-			<label>Current date for Tasks reminder</label>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%today
-00. Today
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%dt_millis
-1. MilliSeconds
-Milliseconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%dt_seconds
-2. Seconds
-Seconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%dt_day_of_month
-3. Day Of Month
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%dt_month_of_year
-4. Month Of Year
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%dt_year
-5. Year
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="1"/>
-			<Int sr="arg10" val="0"/>
-			<Str sr="arg11" ve="3"/>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3">yyyy-MM-dd</Str>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3">%today</Str>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act2" ve="7">
 			<code>339</code>
 			<label>Get playlist items</label>
 			<se>false</se>
@@ -390,31 +664,7 @@ maxResults:50</Str>
 			<Int sr="arg8" val="30"/>
 			<Int sr="arg9" val="0"/>
 		</Action>
-		<Action sr="act3" ve="7">
-			<code>389</code>
-			<label>Store video IDs/titles in variables</label>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""/&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Str sr="arg1" ve="3">%yoga_vid
-%yoga_vid_title
-%meditation_check_vid
-%meditation_check_title</Str>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3">%http_data.items.snippet.resourceId.videoId(%current_vid_index)
-%http_data.items.snippet.title(%current_vid_index)
-%http_data.items.snippet.resourceId.videoId(%meditation_check_index)
-%http_data.items.snippet.title(%meditation_check_index)</Str>
-			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="3"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="1"/>
-		</Action>
-		<Action sr="act4" ve="7">
+		<Action sr="act10" ve="7">
 			<code>339</code>
 			<label>Get video details (for duration)</label>
 			<se>false</se>
@@ -443,7 +693,7 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 			<Str sr="arg2" ve="3">https://www.googleapis.com/youtube/v3/videos</Str>
 			<Str sr="arg3" ve="3"/>
 			<Str sr="arg4" ve="3">key:%yt_key
-id:%yoga_vid
+id:%next_vid
 part:contentDetails</Str>
 			<Str sr="arg5" ve="3"/>
 			<Str sr="arg6" ve="3"/>
@@ -451,32 +701,7 @@ part:contentDetails</Str>
 			<Int sr="arg8" val="30"/>
 			<Int sr="arg9" val="0"/>
 		</Action>
-		<Action sr="act5" ve="7">
-			<code>547</code>
-			<label>Yoga/meditation video info formatted as JSON</label>
-			<Str sr="arg0" ve="3">%results</Str>
-			<Str sr="arg1" ve="3">{
-    "yogaVideo": "youtube.com/watch?v=%yoga_vid",
-    "yogaTitle": "%yoga_vid_title",
-    "meditationVideo": "youtube.com/watch?v=%meditation_check_id",
-    "meditationTitle": "%meditation_check_title"
-}</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="1"/>
-		</Action>
-		<Action sr="act6" ve="7">
-			<code>126</code>
-			<on>false</on>
-			<Str sr="arg0" ve="3">%results</Str>
-			<Int sr="arg1" val="1"/>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Str sr="arg4" ve="3"/>
-		</Action>
-		<Action sr="act7" ve="7">
+		<Action sr="act11" ve="7">
 			<code>547</code>
 			<Str sr="arg0" ve="3">%duration</Str>
 			<Str sr="arg1" ve="3">%http_data.items.contentDetails.duration</Str>
@@ -486,9 +711,9 @@ part:contentDetails</Str>
 			<Int sr="arg5" val="3"/>
 			<Int sr="arg6" val="1"/>
 		</Action>
-		<Action sr="act8" ve="7">
+		<Action sr="act12" ve="7">
 			<code>130</code>
-			<Str sr="arg0" ve="3">🧪 Time Format Test</Str>
+			<Str sr="arg0" ve="3">🕓 Format Video Duration</Str>
 			<Int sr="arg1">
 				<var>%priority+1</var>
 			</Int>
@@ -502,34 +727,206 @@ part:contentDetails</Str>
 			<Int sr="arg8" val="0"/>
 			<Int sr="arg9" val="0"/>
 		</Action>
-		<Action sr="act9" ve="7">
-			<code>174307118</code>
+		<Action sr="act13" ve="7">
+			<code>547</code>
+			<label>Yoga &amp; meditation video info formatted as JSON</label>
+			<Str sr="arg0" ve="3">%results</Str>
+			<Str sr="arg1" ve="3">{
+    "yogaVideo": "youtube.com/watch?v=%current_vid",
+    "yogaTitle": "%current_vid_title",
+    "yogaDuration": "%yoga_duration",
+    "meditationVideo": "youtube.com/watch?v=%next_vid",
+    "meditationTitle": "%next_vid_title",
+    "meditationDuration": "%meditation_duration"
+}</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act14" ve="7">
+			<code>888</code>
+			<Str sr="arg0" ve="3">%current_vid_index</Str>
+			<Int sr="arg1" val="2"/>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act15" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">%results</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3"/>
+		</Action>
+		<Action sr="act16" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act17" ve="7">
+			<code>888</code>
+			<Str sr="arg0" ve="3">%current_vid_index</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act18" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">%results</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>389</code>
+			<label>Store video IDs/titles in variables</label>
 			<Bundle sr="arg0">
 				<Vals sr="val">
-					<com.twofortyfouram.locale.intent.extra.BLURB>[%duration_formatted] %results.yogaTitle</com.twofortyfouram.locale.intent.extra.BLURB>
-					<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>
-					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>org.tasks.locale.create.STRING_TITLE org.tasks.locale.create.STRING_DUE_DATE org.tasks.locale.create.STRING_DUE_TIME org.tasks.locale.create.STRING_PRIORITY org.tasks.locale.create.STRING_DESCRIPTION</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>
-					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>
-					<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>
-					<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>
-					<org.tasks.locale.create.INT_VERSION_CODE>120003</org.tasks.locale.create.INT_VERSION_CODE>
-					<org.tasks.locale.create.INT_VERSION_CODE-type>java.lang.Integer</org.tasks.locale.create.INT_VERSION_CODE-type>
-					<org.tasks.locale.create.STRING_DESCRIPTION>%results.yogaVideo</org.tasks.locale.create.STRING_DESCRIPTION>
-					<org.tasks.locale.create.STRING_DESCRIPTION-type>java.lang.String</org.tasks.locale.create.STRING_DESCRIPTION-type>
-					<org.tasks.locale.create.STRING_DUE_DATE>%today</org.tasks.locale.create.STRING_DUE_DATE>
-					<org.tasks.locale.create.STRING_DUE_DATE-type>java.lang.String</org.tasks.locale.create.STRING_DUE_DATE-type>
-					<org.tasks.locale.create.STRING_DUE_TIME>15:00</org.tasks.locale.create.STRING_DUE_TIME>
-					<org.tasks.locale.create.STRING_DUE_TIME-type>java.lang.String</org.tasks.locale.create.STRING_DUE_TIME-type>
-					<org.tasks.locale.create.STRING_PRIORITY></org.tasks.locale.create.STRING_PRIORITY>
-					<org.tasks.locale.create.STRING_PRIORITY-type>java.lang.String</org.tasks.locale.create.STRING_PRIORITY-type>
-					<org.tasks.locale.create.STRING_TITLE>[%duration_formatted] %results.yogaTitle</org.tasks.locale.create.STRING_TITLE>
-					<org.tasks.locale.create.STRING_TITLE-type>java.lang.String</org.tasks.locale.create.STRING_TITLE-type>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""/&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">org.tasks</Str>
-			<Str sr="arg2" ve="3">org.tasks.locale.ui.activity.TaskerCreateTaskActivity</Str>
+			<Str sr="arg1" ve="3">%current_vid
+%current_vid_title
+%next_vid
+%next_title</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3">%http_data.items.snippet.resourceId.videoId(%current_vid_index)
+%http_data.items.snippet.title(%current_vid_index)
+%http_data.items.snippet.resourceId.videoId(%next_vid_index)
+%http_data.items.snippet.title(%next_vid_index)</Str>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="3"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>130</code>
+			<label>Checks if today's video is a meditation video</label>
+			<Str sr="arg0" ve="3">📋 Meditation Title Check</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3">%current_vid_title</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3">%current_title_contains_meditation</Str>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>130</code>
+			<label>Checks if next video is a meditation video</label>
+			<Str sr="arg0" ve="3">📋 Meditation Title Check</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3">%next_vid_title</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3">%next_title_contains_meditation</Str>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>339</code>
+			<label>Get video details (for duration)</label>
+			<se>false</se>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
+Cookies
+The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
+Data
+Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
+File Output
+Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
+Response Code
+The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
+Response Headers
+The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
+Response Length
+The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg10" val="0"/>
+			<Int sr="arg11" val="0"/>
+			<Int sr="arg12" val="1"/>
+			<Str sr="arg2" ve="3">https://www.googleapis.com/youtube/v3/videos</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3">key:%yt_key
+id:%current_vid
+part:contentDetails</Str>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="30"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%duration</Str>
+			<Str sr="arg1" ve="3">%http_data.items.contentDetails.duration</Str>
+			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="1"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">🕓 Format Video Duration</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3">%duration</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3">%yoga_duration</Str>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>547</code>
+			<label>Yoga video info formatted as JSON</label>
+			<Str sr="arg0" ve="3">%results</Str>
+			<Str sr="arg1" ve="3">{
+    "yogaVideo": "youtube.com/watch?v=%current_vid",
+    "yogaTitle": "%current_vid_title",
+    "yogaDuration": "%yoga_duration"
+}</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<bool0>And</bool0>
+				<Condition sr="c0" ve="3">
+					<lhs>%current_title_contains_meditation</lhs>
+					<op>0</op>
+					<rhs>false</rhs>
+				</Condition>
+				<Condition sr="c1" ve="3">
+					<lhs>%next_title_contains_meditation</lhs>
+					<op>0</op>
+					<rhs>true</rhs>
+				</Condition>
+			</ConditionList>
 		</Action>
 		<Img sr="icn" ve="2">
 			<nme>mw_av_subscriptions</nme>
