@@ -67,9 +67,9 @@
 	<Project sr="proj0" ve="2">
 		<cdate>1641955750012</cdate>
 		<name>Yoga</name>
-		<pids>170,154,176,212</pids>
+		<pids>176,170,154,212</pids>
 		<psort>EnabledAlpha</psort>
-		<tids>152,112,186,207,71,162,180,206,213</tids>
+		<tids>180,207,186,71,152,162,206,213,112</tids>
 		<tsort>Alpha</tsort>
 		<ProfileVariable sr="pv0">
 			<clearout>false</clearout>
@@ -152,7 +152,7 @@
 	</Project>
 	<Task sr="task112">
 		<cdate>1642130848141</cdate>
-		<edate>1651336385965</edate>
+		<edate>1651612739207</edate>
 		<id>112</id>
 		<nme>Notify Today's Video(s)</nme>
 		<pri>100</pri>
@@ -351,7 +351,7 @@
 	</Task>
 	<Task sr="task152">
 		<cdate>1642082130955</cdate>
-		<edate>1651336402293</edate>
+		<edate>1651612742753</edate>
 		<id>152</id>
 		<nme>📋 Meditation Title Check</nme>
 		<pri>100</pri>
@@ -388,7 +388,7 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 	</Task>
 	<Task sr="task162">
 		<cdate>1642231557047</cdate>
-		<edate>1650994616982</edate>
+		<edate>1651612737767</edate>
 		<id>162</id>
 		<nme>Manual Playlist Update</nme>
 		<pri>6</pri>
@@ -548,144 +548,11 @@ part:snippet</Str>
 	</Task>
 	<Task sr="task180">
 		<cdate>1642171205003</cdate>
-		<edate>1651302909800</edate>
+		<edate>1651612734503</edate>
 		<id>180</id>
 		<nme>[JS] formatVideoDuration</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
-			<code>129</code>
-			<label>Use regex to delete "PT" and "S"; replace "H" and "M" with ":"
-%par1 = duration string ("PTxHxxMxxS")</label>
-			<on>false</on>
-			<Str sr="arg0" ve="3">let duration = par[0];
-let hoursMinutesRegex = /[hm]/gi;
-let secondsPTRegex = /[pts]/gi;
-
-duration = duration.replace(hoursMinutesRegex, ':');
-duration = duration.replace(secondsPTRegex, '');
-
-if (!par[0].includes("S")) {
-    duration = `${duration}00`;
-}
-
-var duration_processed = duration;</Str>
-			<Str sr="arg1" ve="3"/>
-			<Int sr="arg2" val="1"/>
-			<Int sr="arg3" val="45"/>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>396</code>
-			<label>Check whether %par1 contains "H"
-Used for Parse/Format DateTime below</label>
-			<on>false</on>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%mt_match_found
-Is Match
-true if there was a match, false otherwise&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%mt_match
-Match
-Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg2" ve="3">%par1</Str>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3">h</Str>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>394</code>
-			<label>Format as h:mm:ss if appropriate</label>
-			<on>false</on>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%duration_formatted
-00. Duration formatted
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%dt_millis
-1. MilliSeconds
-Milliseconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%dt_seconds
-2. Seconds
-Seconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%dt_day_of_month
-3. Day Of Month
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%dt_month_of_year
-4. Month Of Year
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%dt_year
-5. Year
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg10" val="0"/>
-			<Str sr="arg11" ve="3"/>
-			<Str sr="arg2" ve="3">%duration_processed</Str>
-			<Str sr="arg3" ve="3">h:m:s</Str>
-			<Str sr="arg4" ve="3">,</Str>
-			<Str sr="arg5" ve="3">h:mm:ss</Str>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3">%duration_formatted</Str>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%mt_match_found</lhs>
-					<op>2</op>
-					<rhs>true</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>394</code>
-			<label>Format as m:ss if appropriate</label>
-			<on>false</on>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%duration_formatted
-00. Duration formatted
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%dt_millis
-1. MilliSeconds
-Milliseconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%dt_seconds
-2. Seconds
-Seconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%dt_day_of_month
-3. Day Of Month
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%dt_month_of_year
-4. Month Of Year
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%dt_year
-5. Year
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg10" val="0"/>
-			<Str sr="arg11" ve="3"/>
-			<Str sr="arg2" ve="3">%duration_processed</Str>
-			<Str sr="arg3" ve="3">m:s</Str>
-			<Str sr="arg4" ve="3">,</Str>
-			<Str sr="arg5" ve="3">m:ss</Str>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3">%duration_formatted</Str>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%mt_match_found</lhs>
-					<op>2</op>
-					<rhs>false</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>126</code>
-			<label>Return formatted duration string</label>
-			<on>false</on>
-			<Str sr="arg0" ve="3">%duration_formatted</Str>
-			<Int sr="arg1" val="1"/>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Str sr="arg4" ve="3"/>
-		</Action>
-		<Action sr="act5" ve="7">
 			<code>129</code>
 			<Str sr="arg0" ve="3">/* Format YouTube API duration (formatted
 as PTxHxMxS) as h:mm:ss or m:ss */
@@ -721,7 +588,7 @@ var formatted_duration = timeUnits.join(':');</Str>
 			<Int sr="arg2" val="1"/>
 			<Int sr="arg3" val="45"/>
 		</Action>
-		<Action sr="act6" ve="7">
+		<Action sr="act1" ve="7">
 			<code>126</code>
 			<Str sr="arg0" ve="3">%formatted_duration</Str>
 			<Int sr="arg1" val="1"/>
@@ -736,7 +603,7 @@ var formatted_duration = timeUnits.join(':');</Str>
 	</Task>
 	<Task sr="task186">
 		<cdate>1641955915330</cdate>
-		<edate>1651543510438</edate>
+		<edate>1651612724619</edate>
 		<id>186</id>
 		<nme>▶️ Get Today's Video(s)</nme>
 		<pri>100</pri>
@@ -1173,7 +1040,7 @@ part:contentDetails</Str>
 	</Task>
 	<Task sr="task206">
 		<cdate>1643635424801</cdate>
-		<edate>1651201394214</edate>
+		<edate>1651612744588</edate>
 		<id>206</id>
 		<nme>🔔 Yoga Notification Actions</nme>
 		<Action sr="act0" ve="7">
@@ -1265,7 +1132,7 @@ part:contentDetails</Str>
 	</Task>
 	<Task sr="task207">
 		<cdate>1643034472695</cdate>
-		<edate>1651201474733</edate>
+		<edate>1651612741411</edate>
 		<id>207</id>
 		<nme>Snooze Yoga Notification</nme>
 		<pri>6</pri>
@@ -1529,7 +1396,7 @@ h:mma</Str>
 	</Task>
 	<Task sr="task71">
 		<cdate>1641955915330</cdate>
-		<edate>1649246915295</edate>
+		<edate>1651612736135</edate>
 		<id>71</id>
 		<nme>Get Latest YWA Playlist ID</nme>
 		<pri>100</pri>
