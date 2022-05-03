@@ -20,7 +20,7 @@
 	<Profile sr="prof170" ve="2">
 		<cdate>1642132003271</cdate>
 		<clp>true</clp>
-		<edate>1644640364047</edate>
+		<edate>1649161255967</edate>
 		<flags>8</flags>
 		<id>170</id>
 		<mid0>186</mid0>
@@ -35,7 +35,7 @@
 	<Profile sr="prof176" ve="2">
 		<cdate>1642400459986</cdate>
 		<clp>true</clp>
-		<edate>1646664122622</edate>
+		<edate>1650137211892</edate>
 		<flags>8</flags>
 		<id>176</id>
 		<mid0>112</mid0>
@@ -66,10 +66,10 @@
 	</Profile>
 	<Project sr="proj0" ve="2">
 		<cdate>1641955750012</cdate>
-		<name>YWA</name>
-		<pids>176,212,154,170</pids>
+		<name>Yoga</name>
+		<pids>170,154,176,212</pids>
 		<psort>EnabledAlpha</psort>
-		<tids>180,207,152,71,206,162,186,112,213</tids>
+		<tids>152,112,186,207,71,162,180,206,213</tids>
 		<tsort>Alpha</tsort>
 		<ProfileVariable sr="pv0">
 			<clearout>false</clearout>
@@ -152,7 +152,7 @@
 	</Project>
 	<Task sr="task112">
 		<cdate>1642130848141</cdate>
-		<edate>1646664417014</edate>
+		<edate>1651336385965</edate>
 		<id>112</id>
 		<nme>Notify Today's Video(s)</nme>
 		<pri>100</pri>
@@ -351,7 +351,7 @@
 	</Task>
 	<Task sr="task152">
 		<cdate>1642082130955</cdate>
-		<edate>1644937803166</edate>
+		<edate>1651336402293</edate>
 		<id>152</id>
 		<nme>📋 Meditation Title Check</nme>
 		<pri>100</pri>
@@ -388,7 +388,7 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 	</Task>
 	<Task sr="task162">
 		<cdate>1642231557047</cdate>
-		<edate>1646664413628</edate>
+		<edate>1650994616982</edate>
 		<id>162</id>
 		<nme>Manual Playlist Update</nme>
 		<pri>6</pri>
@@ -548,14 +548,15 @@ part:snippet</Str>
 	</Task>
 	<Task sr="task180">
 		<cdate>1642171205003</cdate>
-		<edate>1646664165221</edate>
+		<edate>1651302909800</edate>
 		<id>180</id>
-		<nme>🕓 Format Video Duration</nme>
+		<nme>[JS] formatVideoDuration</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>129</code>
 			<label>Use regex to delete "PT" and "S"; replace "H" and "M" with ":"
 %par1 = duration string ("PTxHxxMxxS")</label>
+			<on>false</on>
 			<Str sr="arg0" ve="3">let duration = par[0];
 let hoursMinutesRegex = /[hm]/gi;
 let secondsPTRegex = /[pts]/gi;
@@ -576,6 +577,7 @@ var duration_processed = duration;</Str>
 			<code>396</code>
 			<label>Check whether %par1 contains "H"
 Used for Parse/Format DateTime below</label>
+			<on>false</on>
 			<Bundle sr="arg0">
 				<Vals sr="val">
 					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%mt_match_found
@@ -594,6 +596,7 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 		<Action sr="act2" ve="7">
 			<code>394</code>
 			<label>Format as h:mm:ss if appropriate</label>
+			<on>false</on>
 			<Bundle sr="arg0">
 				<Vals sr="val">
 					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%duration_formatted
@@ -634,6 +637,7 @@ Seconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&
 		<Action sr="act3" ve="7">
 			<code>394</code>
 			<label>Format as m:ss if appropriate</label>
+			<on>false</on>
 			<Bundle sr="arg0">
 				<Vals sr="val">
 					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%duration_formatted
@@ -674,19 +678,65 @@ Seconds Since Epoch&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&
 		<Action sr="act4" ve="7">
 			<code>126</code>
 			<label>Return formatted duration string</label>
+			<on>false</on>
 			<Str sr="arg0" ve="3">%duration_formatted</Str>
 			<Int sr="arg1" val="1"/>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Str sr="arg4" ve="3"/>
 		</Action>
+		<Action sr="act5" ve="7">
+			<code>129</code>
+			<Str sr="arg0" ve="3">/* Format YouTube API duration (formatted
+as PTxHxMxS) as h:mm:ss or m:ss */
+
+let duration = par[0];
+duration = duration.replace(/[hm]/gi, ':');
+duration = duration.replace(/[pts]/gi, '');
+
+// insert 00 seconds if not present from API
+if (!par[0].includes('S')) {
+    duration = `${duration}00`;
+}
+
+// create array of h/m/s values
+let timeUnits = duration.split(':');
+
+// starting with index 1, modify time units
+// to 0x if unit is &lt;10 and not equal to 0
+for (let i = 1; i &lt; timeUnits.length; i++) {
+    let currentUnitNum = Number(timeUnits[i]);
+    if (currentUnitNum &lt; 10 &amp;&amp; currentUnitNum !== 0) {
+        timeUnits[i] = `0${timeUnits[i]}`;
+    }
+}
+
+// if over 1 hour and no mins present, set mins to 00
+if(par[0].includes('H') &amp;&amp; !par[0].includes('M')) {
+    timeUnits.splice(1, 0, '00');
+}
+
+var formatted_duration = timeUnits.join(':');</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="45"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">%formatted_duration</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3"/>
+		</Action>
 		<Img sr="icn" ve="2">
-			<nme>mw_device_access_time</nme>
+			<nme>mw_action_code</nme>
+			<tint>-1</tint>
 		</Img>
 	</Task>
 	<Task sr="task186">
 		<cdate>1641955915330</cdate>
-		<edate>1646664377239</edate>
+		<edate>1651543510438</edate>
 		<id>186</id>
 		<nme>▶️ Get Today's Video(s)</nme>
 		<pri>100</pri>
@@ -835,7 +885,7 @@ part:contentDetails</Str>
 		<Action sr="act17" ve="7">
 			<code>130</code>
 			<label>Format duration variable to mm:ss</label>
-			<Str sr="arg0" ve="3">🕓 Format Video Duration</Str>
+			<Str sr="arg0" ve="3">[JS] formatVideoDuration</Str>
 			<Int sr="arg1">
 				<var>%priority+1</var>
 			</Int>
@@ -852,7 +902,7 @@ part:contentDetails</Str>
 		<Action sr="act18" ve="7">
 			<code>598</code>
 			<label>Remove everything after "|" or remove "Yoga With Adriene" from title</label>
-			<Str sr="arg0" ve="3">%next_title</Str>
+			<Str sr="arg0" ve="3">%next_vid_title</Str>
 			<Str sr="arg1" ve="3">\|.+$|(.\s*)Yoga With Adriene</Str>
 			<Int sr="arg2" val="1"/>
 			<Int sr="arg3" val="0"/>
@@ -870,7 +920,7 @@ part:contentDetails</Str>
     "yogaTitle": "%current_vid_title",
     "yogaDuration": "%yoga_duration",
     "meditationVideo": "youtube.com/watch?v=%next_vid",
-    "meditationTitle": "%next_title",
+    "meditationTitle": "%next_vid_title",
     "meditationDuration": "%meditation_duration"
 }</Str>
 			<Int sr="arg2" val="0"/>
@@ -988,7 +1038,7 @@ maxResults:50</Str>
 			<Str sr="arg1" ve="3">%current_vid
 %current_vid_title
 %next_vid
-%next_title</Str>
+%next_vid_title</Str>
 			<Str sr="arg2" ve="3"/>
 			<Str sr="arg3" ve="3">%http_data.items.snippet.resourceId.videoId(%current_vid_index)
 %http_data.items.snippet.title(%current_vid_index)
@@ -1025,7 +1075,7 @@ maxResults:50</Str>
 				<var>%priority+1</var>
 			</Int>
 			<Int sr="arg10" val="1"/>
-			<Str sr="arg2" ve="3">%next_title</Str>
+			<Str sr="arg2" ve="3">%next_vid_title</Str>
 			<Str sr="arg3" ve="3"/>
 			<Str sr="arg4" ve="3">%next_title_contains_meditation</Str>
 			<Int sr="arg5" val="0"/>
@@ -1033,6 +1083,13 @@ maxResults:50</Str>
 			<Str sr="arg7" ve="3"/>
 			<Int sr="arg8" val="0"/>
 			<Int sr="arg9" val="0"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%next_vid</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
 		</Action>
 		<Action sr="act6" ve="7">
 			<code>339</code>
@@ -1084,7 +1141,7 @@ part:contentDetails</Str>
 		<Action sr="act8" ve="7">
 			<code>130</code>
 			<label>Format duration variable to mm:ss</label>
-			<Str sr="arg0" ve="3">🕓 Format Video Duration</Str>
+			<Str sr="arg0" ve="3">[JS] formatVideoDuration</Str>
 			<Int sr="arg1">
 				<var>%priority+1</var>
 			</Int>
@@ -1116,7 +1173,7 @@ part:contentDetails</Str>
 	</Task>
 	<Task sr="task206">
 		<cdate>1643635424801</cdate>
-		<edate>1646664405047</edate>
+		<edate>1651201394214</edate>
 		<id>206</id>
 		<nme>🔔 Yoga Notification Actions</nme>
 		<Action sr="act0" ve="7">
@@ -1208,7 +1265,7 @@ part:contentDetails</Str>
 	</Task>
 	<Task sr="task207">
 		<cdate>1643034472695</cdate>
-		<edate>1646664421917</edate>
+		<edate>1651201474733</edate>
 		<id>207</id>
 		<nme>Snooze Yoga Notification</nme>
 		<pri>6</pri>
@@ -1472,7 +1529,7 @@ h:mma</Str>
 	</Task>
 	<Task sr="task71">
 		<cdate>1641955915330</cdate>
-		<edate>1646664415329</edate>
+		<edate>1649246915295</edate>
 		<id>71</id>
 		<nme>Get Latest YWA Playlist ID</nme>
 		<pri>100</pri>
